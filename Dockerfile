@@ -27,7 +27,7 @@ RUN apt-get install -q -y libicu52 libfontconfig libfontconfig1 libjpeg8 libpng1
 
 
 ############################################################ JENKINS  ############################################################
-ENV JENKINS_VERSION 1.647
+ENV JENKINS_VERSION 1.656
 ##########################
 ADD http://mirrors.jenkins-ci.org/war/$JENKINS_VERSION/jenkins.war /opt/jenkins.war
 RUN chmod 644 /opt/jenkins.war
