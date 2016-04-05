@@ -11,15 +11,6 @@ RUN apt-get install -y software-properties-common
 #####
 RUN apt-get install -y git
 
-# Node & npm
-#########################
-RUN apt-get install -q -y nodejs npm; \
-    ln -s /usr/bin/nodejs /usr/bin/node;
-
-# grunt, gulp & bower
-#########################
-RUN npm install -g gulp grunt bower
-
 # Gradle Settings
 #################
 ADD gradle.properties /root/.gradle/gradle.properties

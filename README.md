@@ -18,10 +18,6 @@ This image contains a Jenkins and a Sonar installation
    * Github-pull-request-builder
 
 * Java 1.8
-* Node
-* Gulp
-* Grunt
-* Bower
 * PhantomJS
 
 
