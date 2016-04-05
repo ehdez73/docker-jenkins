@@ -1,6 +1,6 @@
 #!/bin/sh
 # remove previous images and containers
-docker rm -f jenkinks
+docker rm -f jenkins
 docker rmi -f ehdez73/docker-jenkins
 
 # build and run the container

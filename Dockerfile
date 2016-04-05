@@ -5,6 +5,7 @@ EXPOSE 8080
 
 RUN apt-get update
 RUN apt-get install -y software-properties-common
+RUN echo "Europe/Madrid" > /etc/timezone; dpkg-reconfigure -f noninteractive tzdata
 
 ############################################################ BUILD TOOLS #########################################################
 # GIT
@@ -38,17 +39,17 @@ ENV JENKINS_HOME /jenkins
 ENV JENKINS_PLUGINS_LOCAL $JENKINS_HOME/plugins
 ENV JENKINS_PLUGINS_REMOTE https://updates.jenkins-ci.org/download/plugins
 
-ADD $JENKINS_PLUGINS_REMOTE/build-pipeline-plugin/1.4.9/build-pipeline-plugin.hpi   $JENKINS_PLUGINS_LOCAL/build-pipeline-plugin.hpi
-ADD $JENKINS_PLUGINS_REMOTE/git/2.4.2/git.hpi                                       $JENKINS_PLUGINS_LOCAL/git.hpi
-ADD $JENKINS_PLUGINS_REMOTE/git-client/1.19.3/git-client.hpi                        $JENKINS_PLUGINS_LOCAL/git-client.hpi
+ADD $JENKINS_PLUGINS_REMOTE/build-pipeline-plugin/1.5.2/build-pipeline-plugin.hpi   $JENKINS_PLUGINS_LOCAL/build-pipeline-plugin.hpi
+ADD $JENKINS_PLUGINS_REMOTE/git/2.4.4/git.hpi                                       $JENKINS_PLUGINS_LOCAL/git.hpi
+ADD $JENKINS_PLUGINS_REMOTE/git-client/1.19.6/git-client.hpi                        $JENKINS_PLUGINS_LOCAL/git-client.hpi
 ADD $JENKINS_PLUGINS_REMOTE/jquery/1.11.2-0/jquery.hpi                              $JENKINS_PLUGINS_LOCAL/jquery.hpi
 ADD $JENKINS_PLUGINS_REMOTE/parameterized-trigger/2.30/parameterized-trigger.hpi    $JENKINS_PLUGINS_LOCAL/parameterized-trigger.hpi
 ADD $JENKINS_PLUGINS_REMOTE/token-macro/1.12.1/token-macro.hpi                      $JENKINS_PLUGINS_LOCAL/token-macro.hpi
-ADD $JENKINS_PLUGINS_REMOTE/scm-api/1.0/scm-api.hpi                                 $JENKINS_PLUGINS_LOCAL/scm-api.hpi
+ADD $JENKINS_PLUGINS_REMOTE/scm-api/1.1/scm-api.hpi                                 $JENKINS_PLUGINS_LOCAL/scm-api.hpi
 ADD $JENKINS_PLUGINS_REMOTE/conditional-buildstep/1.3.3/conditional-buildstep.hpi   $JENKINS_PLUGINS_LOCAL/conditional-buildstep.hpi
 ADD $JENKINS_PLUGINS_REMOTE/run-condition/1.0/run-condition.hpi                     $JENKINS_PLUGINS_LOCAL/run-condition.hpi
 ADD $JENKINS_PLUGINS_REMOTE/copyartifact/1.37/copyartifact.hpi                      $JENKINS_PLUGINS_LOCAL/copyartifact.hpi
-ADD $JENKINS_PLUGINS_REMOTE/promoted-builds/2.24.1/promoted-builds.hpi              $JENKINS_PLUGINS_LOCAL/promoted-builds.hpi
+ADD $JENKINS_PLUGINS_REMOTE/promoted-builds/2.25/promoted-builds.hpi              $JENKINS_PLUGINS_LOCAL/promoted-builds.hpi
 ADD $JENKINS_PLUGINS_REMOTE/ansicolor/0.4.2/ansicolor.hpi                           $JENKINS_PLUGINS_LOCAL/ansicolor.hpi
 ADD $JENKINS_PLUGINS_REMOTE/groovy-postbuild/2.3.1/groovy-postbuild.hpi             $JENKINS_PLUGINS_LOCAL/groovy-postbuild.hpi
 ADD $JENKINS_PLUGINS_REMOTE/ghprb/1.31.2/ghprb.hpi                                  $JENKINS_PLUGINS_LOCAL/ghprb.hpi
