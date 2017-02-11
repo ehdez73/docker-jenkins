@@ -28,7 +28,7 @@ This image contains a Jenkins and a Sonar installation
     $ docker build --tag="ehdez73/docker-jenkins" .
 
     # Run a container
-    $ docker docker run -d \
+    $ docker run -d \
           -p 8888:8080 \
           --name="jenkins" \
           ehdez73/docker-jenkins
